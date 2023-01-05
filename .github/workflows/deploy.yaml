@@ -13,12 +13,8 @@ jobs:
       - run: docker build -t fercele/react-test -f Dockerfile.dev .
       - run: docker run -e CI=true fercele/react-test npm test
 
-      - name: Check test status
-        uses: actions/status-check@v2
-        if: failure()
-
-      # - name: Generate deployment package
-      #   run: zip -r deploy.zip . -x '*.git*'
+      - name: Generate deployment package
+        run: zip -r deploy.zip . -x '*.git*'
 
       # - name: Deploy to EB
       #   uses: einaregilsson/beanstalk-deploy@v18
