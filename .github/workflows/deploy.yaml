@@ -1,11 +1,9 @@
 name: Deploy Frontend
-# on:
-#   push:
-#     branches:
-#       - main
+
 on:
   pull_request:
     types: [closed]
+    reason: merged
 
 jobs:
   build:
